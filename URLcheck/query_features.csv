@@ -1,0 +1,13 @@
+URL,DOTS_OF_SUB_DOMAIN,HAS_HYPHEN,LEN_OF_URL,HAS_AT_SIGN,HAS_DOUBLE_SLASH,NUM_OF_SUBDIR,NUM_OF_SUB_DOMAIN,LEN_OF_DOMAIN_NAME,NUM_OF_QUERIES,DOMAIN_IS_IP,SUSPICIOUS_TLD,SUSPICIOUS_DOMAIN
+http://www.dce.edu,0,0,18,0,0,0,1,11,0,0,0,0
+http://www.google.com,0,0,21,0,0,0,1,14,0,0,0,0
+http://www.timesofindia.com,0,0,27,0,0,0,1,20,0,0,0,0
+http://www.hdfcbank.com,0,0,23,0,0,0,1,16,0,0,0,0
+http://www.getresponse.com,0,0,26,0,0,0,1,19,0,0,0,0
+http://www.dell.com,0,0,19,0,0,0,1,12,0,0,0,0
+http://www.stackoverflow.com/questions/8551735/how-do-i-run-python-code-from-sublime-text-2,0,0,91,0,0,3,1,21,0,0,0,0
+http://www.paypal.com.webscr.cmd.login.submit.dispatch.5885d80a13c0db1f8e263663d3faee8db2b24f7b84f1819343fd6c338b1d9d.222studio.com/UK/,8,0,135,0,0,2,9,124,0,0,0,0
+http://www.baidu.com/zhidao/,0,0,28,0,0,2,1,13,0,0,0,0
+http://www.indeed.com/resume/,0,0,29,0,0,2,1,14,0,0,0,0
+https://twitter.com/home?status=%E3%83%8C%E3%81%91%E3%82%8B%EF%BC%81%E3%80%90%E3%82%A2%E3%83%8B%E3%83%A1%E3%80%91+http%3A%2F%2Fero-video.net%2Ft%2FfAYqVV0jDaKRCbty+%E7%A5%9E%E8%96%99+%E4%BA%94%E5%8D%81%E9%88%B4+%23ero+%23douga+%23agesage,0,0,237,0,0,1,0,11,212,0,0,0
+http://ap.org/Content/AP-In-The-News/2014/Former-AP-Latin-America-bureau-chief-dies,0,0,83,0,0,4,0,6,0,0,0,0
