@@ -58,7 +58,7 @@ def process_test_url(url, output_dest):
 
 
 # def main():
-process_URL_list('kaggle_allBad_allGood.txt', 'url_features.csv')
+process_URL_list('kaggle_good10M_bad10M.txt', 'url_features_kaggle2M.csv')
 # process_test_list("query.txt", 'query_features.csv')
 #tr.train('url_features.csv', 'url_features.csv')         #arguments:(input_training feature, test/query traning features)
 # tr.train('url_features.csv', 'query_features.csv')      #testing with urls in query.txt

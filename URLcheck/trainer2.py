@@ -16,7 +16,7 @@ import sklearn.metrics
 def train(db):
     featureSet = pandas.read_csv(db)
     featureSet.groupby(featureSet['malicious']).size()
-    X = featureSet.drop(['URL','host','path','malicious'], axis=1).values
+    X = featureSet.drop(['URL','host','path','avg_path_token','malicious'], axis=1).values
     y = featureSet['malicious'].values
 
     model = {"DecisionTree": tree.DecisionTreeClassifier(max_depth=20),

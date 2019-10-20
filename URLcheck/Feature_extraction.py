@@ -8,7 +8,13 @@ import csv
 import pygeoip
 from numpy import unicode
 from os.path import splitext
+import tldextract
 
+Suspicious_TLD = ['gq', 'cf', 'tk', 'ml', 'ga', 'men', 'loan', 'date', 'tw', 'bid','country','stream','download',
+                  'xin','gdn','racing','jetzt','vip','ren','kim','mom','party','review','trade','wang','accountants']
+Suspicious_Domain = ['luckytime.co.kr', 'mattfoll.eu.interia.pl', 'trafficholder.com', 'dl.baixaki.com.br',
+                     'bembed.redtube.comr', 'tags.expo9.exponential.com', 'deepspacer.com', 'funad.co.kr',
+                     'trafficconverter.biz']
 nf = -1
 
 #[average len, number of words, longest word]
@@ -236,6 +242,8 @@ def getFeatures(url_input):
         obj = urlparse(url_input)
         host = obj.netloc
         path = obj.path
+        param = obj.params
+        ext = tldextract.extract(url_input)
 
         Feature['URL'] = url_input
 
@@ -244,10 +252,11 @@ def getFeatures(url_input):
 
         Feature['host'] = obj.netloc
         Feature['path'] = obj.path
+        Feature['param'] = param
 
         Feature['Length_of_url'] = len(url_input)
         Feature['Length_of_host'] = len(host)
-        # Feature['Length_of_path'] = len(path)
+        Feature['Length_of_path'] = len(path)
         Feature['No_of_dots'] = url_input.count('.')
 
         Feature['avg_token_length'], Feature['token_count'], Feature['largest_token'] = Tokenise(url_input)
@@ -262,7 +271,9 @@ def getFeatures(url_input):
         Feature['Hyphen_presence'] = isPresentHyphen(url_input)
         Feature['At_presence'] = isPresentAt(url_input)
         Feature['SubDir_presence'] = countSubDir(url_input)
-
+        Feature['Suspicious_TLD'] = 1 if ext.suffix in Suspicious_TLD else 0
+        Feature['Suspicious_domain'] = 1 if '.'.join(ext[1:]) in Suspicious_Domain else 0
+        Feature['No_of_query'] = len(urlparse(url_input).query)
 
         # print host
         # print getASN(host)

@@ -13,11 +13,11 @@ featureSet = pd.read_csv("url_features.csv")
 sns.set(style="darkgrid")
 
 #Length_of_url
-sns.distplot(featureSet[featureSet['malicious'] == 0]['Length_of_host'], color='blue', label='Benign URLs')
-sns.distplot(featureSet[featureSet['malicious'] == 1]['Length_of_host'], color='red', label='Phishing URLs')
-plt.title('Length_of_host Distribution')
+sns.distplot(featureSet[featureSet['malicious'] == 0]['No_of_delim'], color='blue', label='Benign URLs')
+sns.distplot(featureSet[featureSet['malicious'] == 1]['No_of_delim'], color='red', label='Phishing URLs')
+plt.title('No_of_delim Distribution')
 plt.legend(loc='upper right')
-plt.xlabel('Length_of_host')
+plt.xlabel('No_of_delim')
 plt.show()
 
 # #Length_of_host
@@ -83,6 +83,8 @@ plt.show()
 # print("SubDir_presence")
 # print("Ratio of 0 : %f %%" % ((len(x)/len(featureSet)))*100)
 # print("Ratio of 1 : %f %%" % ((len(y)/len(featureSet)))*100)
+
+
 
 # # 统计phishing URL 和 benign URL 个数
 # x = featureSet[featureSet['malicious'] == 0]

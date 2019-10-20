@@ -41,13 +41,42 @@ def mix():
             j = j + 1
 
 
-# def process_kaggle_randomize(original_file, No_bad, No_good):
-#     fout = open("kaggle_random_40000", "w")
-#     fout.truncate()
-#     with open(original_file, encoding = "ISO-8859-1") as file:
-#         nb = 0
-#         ng = 0
-#         for line in file:
+def process_kaggle_randomize(original_file, No_bad, No_good):
+    fout = open("kaggle_good10M_bad10M", "w")
+    fout.truncate()
+    with open(original_file, encoding = "ISO-8859-1") as file:
+        goodlist = []
+        badlist = []
+        for line in file:
+            # print(line)
+            record = line.split(',')
+            url = record[0]
+            lable = record[1].strip()
+            if url == 'url' or (lable != 'good' and lable != 'bad'):
+                continue
+            if lable == 'bad':
+                malicious = '1'
+            else:
+                malicious = '0'
+            out = '//' + url.strip() + ',' + malicious + '\n'
+            if malicious == '0':
+                goodlist.append(out)
+            else:
+                badlist.append(out)
+
+        sample_good = random.sample(goodlist, No_good)
+        print('#good : %d', len(sample_good))
+        sample_bad = random.sample(badlist, No_bad)
+        print('#bad : %d', len(sample_bad))
+        for line in sample_good:
+            fout.write(line)
+        for line in sample_bad:
+            fout.write(line)
+
+        print('# ratio of good : ', len(sample_good)/(len(goodlist))+len(badlist))
+        print('# ratio of bad : ', len(badlist)/(len(goodlist))+len(badlist))
+
+    fout.close()
 
 
 # 提取多个phishTank文件里的malicious URL
@@ -109,4 +138,5 @@ def process_kaggle_list(file_bad_good, No_bad, No_good):
 # process_kaggle_list("Kaggle_data.txt", 1000000, 1000000)
 # process_URL_list("phishing_verified_online.csv", "Benign_list_big_final.csv")
 # mix()
-process_phishTank("phishTank_list.txt")
+# process_phishTank("phishTank_list.txt")
+process_kaggle_randomize("Kaggle_data.txt", 10000, 10000)
